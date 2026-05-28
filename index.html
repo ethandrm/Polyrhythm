@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Polyrhythm Generator</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    #brand {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    select, button, input {
+      font-size: 16px;
+      padding: 8px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="brand">Hughes Developments</div>
+
+  <h1>Polyrhythm Generator</h1>
+
+  <select id="ratio">
+    <option value="2,3">2 / 3</option>
+    <option value="3,4" selected>3 / 4</option>
+    <option value="4,5">4 / 5</option>
+    <option value="5,6">5 / 6</option>
+    <option value="6,7">6 / 7</option>
+    <option value="7,8">7 / 8</option>
+  </select>
+
+  <br>
+
+  <label>Tempo</label><br>
+ <input id="tempo" type="range" min="60" max="700" value="180">
+
+  <div id="tempoValue">180 BPM</div>
+
+  <br>
+
+  <button onclick="start()">Start</button>
+  <button onclick="stop()">Stop</button>
+
+  <script src="script.js"></script>
+
+  <script>
+    const slider = document.getElementById("tempo");
+    const label = document.getElementById("tempoValue");
+
+    slider.oninput = () => {
+      label.innerText = slider.value + " BPM";
+    };
+  </script>
+
+</body>
+</html>
